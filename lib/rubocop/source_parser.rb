@@ -12,7 +12,7 @@ module RuboCop
 
     def parse(string, name = '(string)')
       source_buffer = Parser::Source::Buffer.new(name, 1)
-      source_buffer.source = string
+      source_buffer.source = string.gsub("\t", '  ')
 
       parser = create_parser
       diagnostics = []
